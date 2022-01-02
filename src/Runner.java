@@ -7,10 +7,8 @@ import java.util.Scanner;
 //-----------------------------------------------------
 //Title: Runner
 //Author: Abdusselam koç
-//ID:
-//Section: 1
 //Description: main class to run the program
-//you may need to change directories for different test results, I also put my test classes to zip file to test the program for different sized data.
+//you may need to change directories for different test results, I also put my test data as zip file to test the program for different sized data.
 //-----------------------------------------------------
 
 
@@ -20,7 +18,6 @@ public class Runner {
     final long Megabayte = 1024L * 1024l;
 
 
-
     // --------------------------------------------------------
     // Summary:this method calculates length of test data
     // Precondition:unknown length of data.
@@ -28,11 +25,11 @@ public class Runner {
     // --------------------------------------------------------
 
 
-    public void lengthOfData() {
+    public void lengthOfData(String path) {
         long length = 0;
 
         try {
-            File myObj = new File("src/test.txt");// directory
+            File myObj = new File(path);// directory
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = (myReader.nextLine());
@@ -65,11 +62,11 @@ public class Runner {
     // --------------------------------------------------------
 
 
-    public void hflput() {
+    public void hflput(String path) {
         hashFL hfl = new hashFL(); // new hash for linear probing object.
 
         try {
-            File myObj = new File("src/test.txt");// directory
+            File myObj = new File(path);// directory
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = (myReader.nextLine());
@@ -108,11 +105,11 @@ public class Runner {
     // Postcondition:there is test data in the algorithm.
     // this method is used for calculation of memory.
     // --------------------------------------------------------
-    public void hflput2() {
+    public void hflput2(String path) {
         hashFL hfl = new hashFL(); // new hash for linear probing object.
 
         try {
-            File myObj = new File("src/test.txt");// directory
+            File myObj = new File(path);// directory
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = (myReader.nextLine());
@@ -153,11 +150,11 @@ public class Runner {
     // Postcondition:there is test data in the algorithm.
     //this method used for calculation of time.
     // --------------------------------------------------------
-    public void hscput() {
+    public void hscput(String path) {
         hashForSC hsc = new hashForSC(); // new hash for separate chain object.
 
         try {
-            File myObj = new File("src/test.txt");// directory
+            File myObj = new File(path);// directory
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = (myReader.nextLine());
@@ -203,11 +200,11 @@ public class Runner {
 
 
 
-    public void hscput2() {
+    public void hscput2(String path) {
         hashForSC hsc = new hashForSC(); // new hash for separate chain object.
 
         try {
-            File myObj = new File("src/test.txt");// directory
+            File myObj = new File(path);// directory
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = (myReader.nextLine());
@@ -244,9 +241,9 @@ public class Runner {
     // Postcondition: time is calculated.
     // --------------------------------------------------------
 
-    public void hflTime() {
+    public void hflTime(String path) {
         long startTime1 = System.currentTimeMillis();
-        hflput();
+        hflput(path);
         long stopTime1 = System.currentTimeMillis();
         long elapsedTime1 = stopTime1 - startTime1;
 
@@ -261,9 +258,9 @@ public class Runner {
     // --------------------------------------------------------
 
 
-    public void hscTime() {
+    public void hscTime(String path) {
         long startTime = System.currentTimeMillis();
-        hscput();
+        hscput(path);
         long stopTime = System.currentTimeMillis();
         long elapsedTime = stopTime - startTime;
 
@@ -278,8 +275,8 @@ public class Runner {
     // --------------------------------------------------------
 
 
-    public void hflMemory() {
-        hflput2();
+    public void hflMemory(String path) {
+        hflput2(path);
         Runtime runtime = Runtime.getRuntime(); //system.runtime.
         runtime.gc();
         long memory = runtime.totalMemory() - runtime.freeMemory();
@@ -293,8 +290,8 @@ public class Runner {
     // Postcondition:memory usage is calculated.
     // --------------------------------------------------------
 
-    public void hscMemory() {
-        hscput2();
+    public void hscMemory(String path) {
+        hscput2(path);
         Runtime runtime = Runtime.getRuntime();
         runtime.gc();
         long memory = runtime.totalMemory() - runtime.freeMemory();
@@ -312,18 +309,18 @@ public class Runner {
     // --------------------------------------------------------
     public static void main(String[] args) throws InterruptedException {
         // TODO Auto-generated method stub
-
+        String path = "src/test.txt";
         Runner runner = new Runner();// new runner object to call methods.
-        runner.lengthOfData(); // calculate length of data.
+        runner.lengthOfData(path); // calculate length of data.
 
         System.out.println("time and memory calculator for separate chain implementation");
-        runner.hscTime();
-        runner.hscMemory();
+        runner.hscTime(path);
+        runner.hscMemory(path);
 
 
         System.out.println("time and memory calculation for linear probing implementation");
-        runner.hflTime();
-        runner.hflMemory();
+        runner.hflTime(path);
+        runner.hflMemory(path);
 
     }
 

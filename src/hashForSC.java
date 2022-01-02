@@ -5,8 +5,6 @@ import java.util.List;
 //-----------------------------------------------------
 //Title: Runner
 //Author: Abdusselam koç
-//ID:
-//Section: 1
 //Description: hash code implementation for separate chaining
 //-----------------------------------------------------
 

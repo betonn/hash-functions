@@ -4,8 +4,6 @@
 //-----------------------------------------------------
 //Title: hashFL
 //Author: Abdusselam koç
-//ID:
-//Section: 1
 //Description: hash code implementation for linear probing
 //-----------------------------------------------------
 
